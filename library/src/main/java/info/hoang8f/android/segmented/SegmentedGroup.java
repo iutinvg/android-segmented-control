@@ -10,6 +10,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -60,6 +61,7 @@ public class SegmentedGroup extends RadioGroup {
             LayoutParams initParams = (LayoutParams) child.getLayoutParams();
             LayoutParams params = new LayoutParams(initParams.width, initParams.height, initParams.weight);
             params.setMargins(0, 0, -oneDP, 0);
+            params.gravity = Gravity.CENTER;
             child.setLayoutParams(params);
             updateBackground(getChildAt(0), R.drawable.radio_checked_left, R.drawable.radio_unchecked_left);
             for (int i = 1; i < count - 1; i++) {
@@ -68,6 +70,7 @@ public class SegmentedGroup extends RadioGroup {
                 initParams = (LayoutParams) child2.getLayoutParams();
                 params = new LayoutParams(initParams.width, initParams.height, initParams.weight);
                 params.setMargins(0, 0, -oneDP, 0);
+                params.gravity = Gravity.CENTER;
                 child2.setLayoutParams(params);
             }
             updateBackground(getChildAt(count - 1), R.drawable.radio_checked_right, R.drawable.radio_unchecked_right);
